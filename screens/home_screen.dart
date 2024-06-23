@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int totalSeconds = twentyFiveMinutes;
   bool isRunning = false;
   int totalPomodoros = 0;
-  late Timer timer;
+  Timer? timer;
 
   void onTick(Timer timer) {
     if (totalSeconds == 0) {
@@ -42,14 +42,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void onPausePressed() {
-    timer.cancel();
+    timer?.cancel();
     setState(() {
       isRunning = false;
     });
   }
 
   void onResetPressed() {
-    timer.cancel();
+    timer?.cancel();
     setState(() {
       isRunning = false;
       totalSeconds = twentyFiveMinutes;
